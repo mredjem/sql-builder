@@ -273,19 +273,53 @@ public class SelectBuilder extends AbstractBuilder {
 		return this;
 	}
 
+	/**
+	 * Order by the specified {@link Column} in the specified order.
+	 * 
+	 * @param column
+	 *            the {@link Column}
+	 * @param desc
+	 *            the sort order
+	 * @return this {@link SelectBuilder}
+	 */
 	public SelectBuilder order(Column column, boolean desc) {
 		orders.add(new OrderBy(column, desc));
 		return this;
 	}
 
+	/**
+	 * Order by the specified column name, the column is assumed to belong to
+	 * the {@link SelectBuilder#table}.
+	 * 
+	 * @param columnName
+	 *            the column name
+	 * @return this {@link SelectBuilder}
+	 */
 	public SelectBuilder order(String columnName) {
 		return order(table.getColumn(columnName), false);
 	}
 
+	/**
+	 * Order by the specified column name, the column is assumed to belong to
+	 * the {@link SelectBuilder#table}.
+	 * 
+	 * @param columnName
+	 *            the column name
+	 * @param desc
+	 *            the sort order
+	 * @return this {@link SelectBuilder}
+	 */
 	public SelectBuilder order(String columnName, boolean desc) {
 		return order(table.getColumn(columnName), desc);
 	}
 
+	/**
+	 * Order by the specified {@link Column}.
+	 * 
+	 * @param column
+	 *            the {@link Column}
+	 * @return this {@link SelectBuilder}
+	 */
 	public SelectBuilder order(Column column) {
 		return order(column, false);
 	}

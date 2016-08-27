@@ -1,5 +1,11 @@
 package com.github.sql.builder.constants;
 
+/**
+ * SQL operators symbols.
+ * 
+ * @author Medhi
+ *
+ */
 public enum Operator {
 	
 	EQUALS("="),

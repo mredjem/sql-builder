@@ -4,17 +4,47 @@ import com.github.sql.builder.model.Column;
 import com.github.sql.builder.model.Table;
 import com.github.sql.builder.model.Value;
 
+/**
+ * Represents a <code>not in</code> predicate.
+ * 
+ * @author Medhi
+ *
+ */
 public class NotInCriteria implements Criteria {
 
+	/**
+	 * The column to apply the predicate to.
+	 */
 	private final Column column;
 
+	/**
+	 * The invalid values.
+	 */
 	private Value[] values;
 
+	/**
+	 * Constructor of {@link NotInCriteria}.
+	 * 
+	 * @param table
+	 *            the {@link Table}
+	 * @param columnName
+	 *            the column name
+	 * @param values
+	 *            the {@link Value}
+	 */
 	public NotInCriteria(Table table, String columnName, Value... values) {
 		this(table.getColumn(columnName));
 		this.values = values;
 	}
 
+	/**
+	 * Constructor of {@link NotInCriteria}.
+	 * 
+	 * @param column
+	 *            the {@link Column}
+	 * @param values
+	 *            the {@link Value}
+	 */
 	public NotInCriteria(Column column, Value... values) {
 		this.column = column;
 		this.values = values;
