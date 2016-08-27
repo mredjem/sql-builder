@@ -131,6 +131,13 @@ public class SelectBuilder extends AbstractBuilder {
 		return this;
 	}
 
+	/**
+	 * Add the {@link Aggregate} function to the select query.
+	 * 
+	 * @param aggregate
+	 *            the {@link Aggregate}
+	 * @return this {@link SelectBuilder}
+	 */
 	public SelectBuilder select(Aggregate aggregate) {
 		aggregates.add(aggregate);
 		return this;
