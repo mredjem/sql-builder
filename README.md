@@ -49,12 +49,23 @@ selectBuilder.
   nullsLast();
   
 String query = selectBuilder.build();
+````
 
-// select c.user_id, c.user_first_name, c.user_last_name, c.user_email
-// from myschema.customers c
-// where c.user_first_name = 'John'
-// order by c.user_email desc
-// nulls last
+The output is as follows :
+
+````sql
+select 
+  c.user_id, 
+  c.user_first_name, 
+  c.user_last_name, 
+  c.user_email
+from 
+  myschema.customers c
+where 
+  c.user_first_name = 'John'
+order by 
+  c.user_email desc
+nulls last
 ````
 
 **update query**
@@ -72,9 +83,17 @@ updateBuilder.
   where(new NamedParameter(new Column(menuTable, "menu_id"), "menuId");
   
 String query = updateBuilder.build();
+````
 
-// update menus m set m.menu_label = 'A delicious meal', m.menu_price = 8
-// where m.menu_id = :menuId
+The output is as follows :
+
+````sql
+update menus m 
+set 
+  m.menu_label = 'A delicious meal', 
+  m.menu_price = 8
+where 
+  m.menu_id = :menuId
 ````
 
 **insert query**
@@ -93,9 +112,23 @@ insertBuilder.
   add("order_label", "kid's menu");
   
 String query = insertBuilder.build();
+````
 
-// insert into orders (order_id, user_id, order_amount, order_label)
-// values(5, 2, 100, 'kid''s menu')
+The output is as follows :
+
+````sql
+insert into orders (
+  order_id, 
+  user_id, 
+  order_amount, 
+  order_label
+)
+values(
+  5, 
+  2, 
+  100, 
+  'kid''s menu'
+)
 ````
 
 **delete query**
@@ -112,7 +145,14 @@ deleteBuilder.
   where(new MatchCriteria(table, "bad_payer_last_name", Operator.LIKE, "Do?"));
   
 String query = deleteBuilder.build();
+````
 
-// delete from badPayers
-// where bad_payer_first_name = 'John' and bad_payer_last_name like 'Do?'
+The output is as follows :
+
+````sql
+delete from badPayers
+where 
+  bad_payer_first_name = 'John' 
+  and 
+  bad_payer_last_name like 'Do?'
 ````
