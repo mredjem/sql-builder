@@ -2,6 +2,8 @@
 
 A lightweight Java librairy for creating simple or complex SQL queries in an easy way.
 
+[![Build Status](https://travis-ci.org/mredjem/sql-builder.svg?branch=master)](https://travis-ci.org/mredjem/sql-builder)
+
 ## Why ?
 
 Sometimes, when working on a web application or a REST api, you need to generate SQL queries based on dynamic criterias.
