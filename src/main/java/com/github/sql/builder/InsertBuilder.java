@@ -49,7 +49,7 @@ public class InsertBuilder extends AbstractBuilder {
 	 *            the value to insert
 	 * @return this {@link InsertBuilder}
 	 */
-	public InsertBuilder setValue(String columnName, Object value) {
+	public InsertBuilder add(String columnName, Object value) {
 		Column column = table.getColumn(columnName);
 		columns.add(column);
 		values.add(new Value(value));

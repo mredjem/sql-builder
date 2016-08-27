@@ -15,11 +15,11 @@ public class InsertBuilderTest {
 
 		InsertBuilder insertBuilder = new InsertBuilder(table);
 
-		insertBuilder.setValue("user_id", 1L)
-				.setValue("user_first_name", "John")
-				.setValue("user_last_name", "DOE")
-				.setValue("user_email", "john.doe@github.com")
-				.setValue("user_password", "*****");
+		insertBuilder.add("user_id", 1L)
+				.add("user_first_name", "John")
+				.add("user_last_name", "DOE")
+				.add("user_email", "john.doe@github.com")
+				.add("user_password", "*****");
 
 		String query = insertBuilder.build();
 

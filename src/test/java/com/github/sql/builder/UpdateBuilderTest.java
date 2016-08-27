@@ -18,9 +18,9 @@ public class UpdateBuilderTest {
 		UpdateBuilder updateBuilder = new UpdateBuilder(table);
 
 		updateBuilder
-				.setValue("user_first_name", "Jane")
-				.setValue("user_last_name", "Doe")
-				.setValue("user_email", "jane.doe@github.com")
+				.set("user_first_name", "Jane")
+				.set("user_last_name", "Doe")
+				.set("user_email", "jane.doe@github.com")
 				.where(new NamedParameter(new Column(table, "user_id"),
 						"userid"));
 

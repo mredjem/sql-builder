@@ -57,7 +57,7 @@ public class UpdateBuilder extends AbstractBuilder {
 	 *            the new value
 	 * @return this {@link UpdateBuilder}
 	 */
-	public UpdateBuilder setValue(String columnName, Object value) {
+	public UpdateBuilder set(String columnName, Object value) {
 		Column column = table.getColumn(columnName);
 		values.add(new ColumnValue(column, new Value(value)));
 		return this;
