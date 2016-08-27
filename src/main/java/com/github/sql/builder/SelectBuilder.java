@@ -332,10 +332,10 @@ public class SelectBuilder extends AbstractBuilder {
 	}
 
 	/**
-	 * Add the specified {@link Order} to the query order clauses.
+	 * Add the specified {@link OrderBy} to the query order clauses.
 	 * 
 	 * @param order
-	 *            the {@link Order}
+	 *            the {@link OrderBy}
 	 * @return this {@link SelectBuilder}
 	 */
 	public SelectBuilder orderBy(OrderBy order) {
