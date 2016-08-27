@@ -376,7 +376,7 @@ public class SelectBuilder extends AbstractBuilder {
 
 		if (!havings.isEmpty()) {
 			print(builder.append(" having("), havings, ", ");
-			builder.append(")");
+			builder.append(" )");
 		}
 
 		if (!orders.isEmpty()) {
