@@ -55,7 +55,7 @@ String query = selectBuilder.build();
 // nulls last
 ````
 
-**update queries**
+**update query**
 
 Depending on the use case, update queries can be built by using complex predicates too :
 
@@ -65,8 +65,8 @@ Table menuTable = new Table("menus", "m");
 UpdateBuilder updateBuilder = new UpdateBuilder(menuTable);
 
 updateBuilder.
-  setValue("menu_label", "A delicious meal").
-  setValue("menu_price", 8).
+  set("menu_label", "A delicious meal").
+  set("menu_price", 8).
   where(new NamedParameter(new Column(menuTable, "menu_id"), "menuId");
   
 String query = updateBuilder.build();
@@ -75,7 +75,7 @@ String query = updateBuilder.build();
 // where m.menu_id = :menuId
 ````
 
-**insert queries**
+**insert query**
 
 Insert queries are slightly simpler :
 
@@ -85,10 +85,10 @@ Table ordersTable = new Table("orders");
 InsertBuilder insertBuilder = new InsertBuilder(ordersTable);
 
 insertBuilder.
-  setValue("order_id", 5L).
-  setValue("user_id", 2L).
-  setValue("order_amount", 10).
-  setValue("order_label", "kid's menu");
+  add("order_id", 5L).
+  add("user_id", 2L).
+  add("order_amount", 10).
+  add("order_label", "kid's menu");
   
 String query = insertBuilder.build();
 
@@ -96,7 +96,7 @@ String query = insertBuilder.build();
 // values(5, 2, 100, 'kid''s menu')
 ````
 
-**delete queries**
+**delete query**
 
 Delete queries support predicates too :
 
