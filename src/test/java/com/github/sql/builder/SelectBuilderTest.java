@@ -56,7 +56,7 @@ public class SelectBuilderTest {
 				.select(joinedTable, "order_amount")
 				.join("id_user", joinedTable, "user_id")
 				.where(new NamedParameter(new Column(table, "user_name"),
-						"username")).order("user_name").nullsLast();
+						"username")).orderBy("user_name").nullsLast();
 
 		String query = selectBuilder.build();
 
@@ -82,7 +82,8 @@ public class SelectBuilderTest {
 				.select("user_password")
 				.where(new NotInCriteria(table, "user_name", new Value(
 						"john.doe@github.com"),
-						new Value("jane.doe@github.com")));
+						new Value("jane.doe@github.com")))
+				.orderBy("user_name", true).orderBy("user_email");
 
 		String query = selectBuilder.build();
 
@@ -90,8 +91,8 @@ public class SelectBuilderTest {
 		assertEquals(
 				"select u.id_user, u.user_name, u.user_email, u.user_password "
 						+ "from schema.users u "
-						+ "where u.user_name not in ('john.doe@github.com', 'jane.doe@github.com')",
-				query);
+						+ "where u.user_name not in ('john.doe@github.com', 'jane.doe@github.com')"
+						+ " order by u.user_name desc, u.user_email asc", query);
 	}
 
 }

@@ -282,7 +282,7 @@ public class SelectBuilder extends AbstractBuilder {
 	 *            the sort order
 	 * @return this {@link SelectBuilder}
 	 */
-	public SelectBuilder order(Column column, boolean desc) {
+	public SelectBuilder orderBy(Column column, boolean desc) {
 		orders.add(new OrderBy(column, desc));
 		return this;
 	}
@@ -295,8 +295,8 @@ public class SelectBuilder extends AbstractBuilder {
 	 *            the column name
 	 * @return this {@link SelectBuilder}
 	 */
-	public SelectBuilder order(String columnName) {
-		return order(table.getColumn(columnName), false);
+	public SelectBuilder orderBy(String columnName) {
+		return orderBy(table.getColumn(columnName), false);
 	}
 
 	/**
@@ -309,8 +309,8 @@ public class SelectBuilder extends AbstractBuilder {
 	 *            the sort order
 	 * @return this {@link SelectBuilder}
 	 */
-	public SelectBuilder order(String columnName, boolean desc) {
-		return order(table.getColumn(columnName), desc);
+	public SelectBuilder orderBy(String columnName, boolean desc) {
+		return orderBy(table.getColumn(columnName), desc);
 	}
 
 	/**
@@ -320,20 +320,48 @@ public class SelectBuilder extends AbstractBuilder {
 	 *            the {@link Column}
 	 * @return this {@link SelectBuilder}
 	 */
-	public SelectBuilder order(Column column) {
-		return order(column, false);
+	public SelectBuilder orderBy(Column column) {
+		return orderBy(column, false);
 	}
 
-	public SelectBuilder order(OrderBy order) {
-		return order(order.getColumn(), order.isDescending());
+	/**
+	 * Add the specified {@link Order} to the query order clauses.
+	 * 
+	 * @param order
+	 *            the {@link Order}
+	 * @return this {@link SelectBuilder}
+	 */
+	public SelectBuilder orderBy(OrderBy order) {
+		return orderBy(order.getColumn(), order.isDescending());
 	}
 
-	public SelectBuilder order(Table table, String columnName, boolean desc) {
-		return order(table.getColumn(columnName), desc);
+	/**
+	 * Order by the specified column name associated to the {@link Table} by
+	 * descending or ascending order.
+	 * 
+	 * @param table
+	 *            the {@link Table}
+	 * @param columnName
+	 *            the column name
+	 * @param desc
+	 *            the sort order
+	 * @return this {@link SelectBuilder}
+	 */
+	public SelectBuilder orderBy(Table table, String columnName, boolean desc) {
+		return orderBy(table.getColumn(columnName), desc);
 	}
 
-	public SelectBuilder order(Table table, String columnName) {
-		return order(table.getColumn(columnName), false);
+	/**
+	 * Order by the specified column name associated to the {@link Table}.
+	 * 
+	 * @param table
+	 *            the {@link Table}
+	 * @param columnName
+	 *            the column name
+	 * @return this {@link SelectBuilder}
+	 */
+	public SelectBuilder orderBy(Table table, String columnName) {
+		return orderBy(table.getColumn(columnName), false);
 	}
 
 	/**

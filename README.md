@@ -45,7 +45,7 @@ selectBuilder.
   select("customer_last_name").
   select("customer_email").
   where(new MatchCriteria(customersTable, "customer_first_name", Operator.EQUALS, "John")).
-  order("customer_email", true).
+  orderBy("customer_email", true).
   nullsLast();
   
 String query = selectBuilder.build();
