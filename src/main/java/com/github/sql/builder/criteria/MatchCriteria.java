@@ -17,19 +17,19 @@ public class MatchCriteria implements Criteria {
 	private final Value value;
 
 	public MatchCriteria(Aggregate aggregate, Operator operator, String value) {
-		this(aggregate, aggregate.getColumn(), operator, new Value(value));
+		this(aggregate, null, operator, new Value(value));
 	}
 
 	public MatchCriteria(Aggregate aggregate, Operator operator, Number value) {
-		this(aggregate, aggregate.getColumn(), operator, new Value(value));
+		this(aggregate, null, operator, new Value(value));
 	}
 
 	public MatchCriteria(Aggregate aggregate, Operator operator, Boolean value) {
-		this(aggregate, aggregate.getColumn(), operator, new Value(value));
+		this(aggregate, null, operator, new Value(value));
 	}
 
 	public MatchCriteria(Aggregate aggregate, Operator operator, Value value) {
-		this(aggregate, aggregate.getColumn(), operator, value);
+		this(aggregate, null, operator, value);
 	}
 
 	public MatchCriteria(Table table, String columnName, Operator operator,

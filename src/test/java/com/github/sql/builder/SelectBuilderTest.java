@@ -38,7 +38,7 @@ public class SelectBuilderTest {
 		assertNotNull(query);
 		assertEquals("select o.user_id, count(o.order_amount) "
 				+ "from schema.users_orders o " + "group by o.user_id "
-				+ "having(o.order_amount >= 5)", query);
+				+ "having( count(o.order_amount) >= 5 )", query);
 	}
 
 	@Test
